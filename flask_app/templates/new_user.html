@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Create</title>
+</head>
+
+<body>
+    <h1 class="text-center">Add a New User</h1>
+    <a href="/users" class="float-end">Home</a>
+        <form action="/user/create" method="post" class="container">
+            {% with messages = get_flashed_messages(category_filter=['regError']) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="text-danger">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input name="first_name" id="first_name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input name="last_name" id="last_name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input name="email" id="email" type="text" class="form-control">
+            </div>
+            <input type="submit" value="Create" class="btn">
+        </form>
+</body>
+
+</html>
